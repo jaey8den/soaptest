@@ -1,0 +1,70 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "soaptest"
+version = "0.1.0"
+description = "Make SOAP services testable from pytest — point at a WSDL, get callable Python."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "jaey8den", email = "89349331+jaey8den@users.noreply.github.com" }]
+keywords = ["soap", "wsdl", "testing", "pytest", "zeep"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Testing",
+  "Topic :: Internet :: WWW/HTTP",
+]
+dependencies = [
+  "zeep>=4.2",
+  "lxml>=5.0",
+  "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.6",
+  "mypy>=1.10",
+]
+
+[project.scripts]
+soaptest = "soaptest.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/jaey8den/soap-tester"
+Repository = "https://github.com/jaey8den/soap-tester"
+Issues = "https://github.com/jaey8den/soap-tester/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/soaptest"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+strict = true
+python_version = "3.11"
+
+[[tool.mypy.overrides]]
+module = "zeep.*"
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+  "integration: marks tests that require network access to a live WSDL endpoint",
+]
