@@ -21,6 +21,7 @@ classifiers = [
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
   "Topic :: Software Development :: Testing",
   "Topic :: Internet :: WWW/HTTP",
 ]
@@ -41,9 +42,9 @@ dev = [
 soaptest = "soaptest.__main__:main"
 
 [project.urls]
-Homepage = "https://github.com/jaey8den/soap-tester"
-Repository = "https://github.com/jaey8den/soap-tester"
-Issues = "https://github.com/jaey8den/soap-tester/issues"
+Homepage = "https://github.com/jaey8den/soaptest"
+Repository = "https://github.com/jaey8den/soaptest"
+Issues = "https://github.com/jaey8den/soaptest/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/soaptest"]
