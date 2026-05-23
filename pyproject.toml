@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "soaptest"
-version = "0.1.0"
+version = "0.1.2"
 description = "Make SOAP services testable from pytest — point at a WSDL, get callable Python."
 readme = "README.md"
 requires-python = ">=3.9"
